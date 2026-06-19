@@ -3,15 +3,27 @@ body {
     line-height: 1.6;
     margin: 0;
     padding: 0;
-    background-color: ##D9C4EC;
+    /* เปลี่ยนเป็นกลุ่มสีม่วงพาสเทลไล่เฉด (Lavender, Thistle, Soft Violet, Periwinkle) */
+    background: linear-gradient(-45deg, #E6E6FA, #D8BFD8, #CCCCFF, #E0B0FF);
+    background-size: 400% 400%;
+    animation: bgMove 8s ease infinite;
     color: #333;
 }
 
+/* พื้นหลังเคลื่อนไหว */
+@keyframes bgMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
 header {
-    background: #4CAF50;
+    /* เปลี่ยน Header เป็นสีม่วงพาสเทลเข้มขึ้นมาหน่อยเพื่อให้ตัวหนังสือสีขาวเด่นชัด */
+    background: linear-gradient(90deg, #BDB5D5, #9370DB);
     color: white;
     padding: 20px 0;
     text-align: center;
+    animation: fadeDown 1s ease;
 }
 
 header h1 {
@@ -26,7 +38,66 @@ section {
     padding: 20px;
     margin: 20px auto;
     max-width: 800px;
-    background: white;
-    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 12px;
+    /* เปลี่ยนแสงเงาฟุ้งๆ ให้เป็นสีม่วงพาสเทลอมชมพูอ่อน */
+    box-shadow: 0 0 20px rgba(216, 191, 216, 0.6);
+    animation: fadeUp 1s ease;
+    transition: all 0.3s ease;
 }
- 
+
+section:hover {
+    transform: scale(1.03);
+    /* เงาตอน Hover เปลี่ยนเป็นสีม่วงที่ชัดขึ้น */
+    box-shadow: 0 0 30px rgba(147, 112, 219, 0.5);
+}
+
+h2 {
+    color: #8A2BE2; /* เปลี่ยนหัวข้อใหญ่เป็นสีม่วงเข้ม (Blue Violet) เพื่อให้อ่านง่าย */
+}
+
+.project {
+    margin-bottom: 20px;
+}
+
+.project h3 {
+    margin: 0 0 10px;
+    color: #9370DB; /* เปลี่ยนหัวข้อย่อยเป็นสีม่วง Medium Purple */
+}
+
+ul {
+    list-style-type: square;
+    padding-left: 20px;
+}
+
+footer {
+    text-align: center;
+    padding: 10px 0;
+    /* เปลี่ยน Footer ให้เข้าคู่กับ Header */
+    background: linear-gradient(90deg, #9370DB, #BDB5D5);
+    color: white;
+    margin-top: 20px;
+}
+
+/* Animation */
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
